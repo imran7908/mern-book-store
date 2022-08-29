@@ -1,6 +1,7 @@
 //external imports
 const express = require("express");
 const { default: mongoose } = require("mongoose");
+const cors = require("cors");
 
 //internal imports
 const bookRouter = require("./routes/bookRouter");
@@ -8,6 +9,7 @@ const bookRouter = require("./routes/bookRouter");
 const app = express();
 
 //middlewares
+app.use(cors());
 app.use(express.json());
 app.use("/books", bookRouter);
 
