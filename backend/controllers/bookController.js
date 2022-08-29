@@ -1,5 +1,4 @@
 //external imports
-const express = require("express");
 
 //internal exports
 const Book = require("../model/Book");
@@ -19,4 +18,27 @@ const getAllBooks = async (req, res, next) => {
   return res.status(200).json({ books });
 };
 
-module.exports = getAllBooks;
+const addBook = async (req, res, next) => {
+  const { name, author, description, price, available } = req.body;
+  let book;
+  try {
+    book = new Book({
+      name,
+      author,
+      description,
+      price,
+      available,
+    });
+    await book.save();
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!book) {
+    return res.status(500).json({ message: "Unable to Add!" });
+  }
+
+  return res.status(201).json({ book });
+};
+
+module.exports = { getAllBooks, addBook };

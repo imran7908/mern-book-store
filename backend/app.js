@@ -8,6 +8,7 @@ const bookRouter = require("./routes/bookRouter");
 const app = express();
 
 //middlewares
+app.use(express.json());
 app.use("/books", bookRouter);
 
 //Server and MongoDB connection
