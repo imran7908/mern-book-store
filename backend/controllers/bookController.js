@@ -18,6 +18,22 @@ const getAllBooks = async (req, res, next) => {
   return res.status(200).json({ books });
 };
 
+const getBookById = async (req, res, next) => {
+  const { id } = req.params;
+  let book;
+  try {
+    book = await Book.findById(id);
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!book) {
+    return res.status(404).json({ message: "No book found with this id!" });
+  }
+
+  return res.status(200).json({ book });
+};
+
 const addBook = async (req, res, next) => {
   const { name, author, description, price, available } = req.body;
   let book;
@@ -41,4 +57,4 @@ const addBook = async (req, res, next) => {
   return res.status(201).json({ book });
 };
 
-module.exports = { getAllBooks, addBook };
+module.exports = { getAllBooks, addBook, getBookById };

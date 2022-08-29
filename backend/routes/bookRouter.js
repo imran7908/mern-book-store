@@ -3,10 +3,10 @@ const express = require("express");
 const router = express.Router();
 
 //internal imports
-const { getAllBooks, addBook } = require("../controllers/bookController");
+const { getAllBooks, addBook, getBookById } = require("../controllers/bookController");
 
 router.get("/", getAllBooks);
-router.get("/:id")
+router.get("/:id", getBookById)
 router.post("/", addBook);
 
 module.exports = router;
