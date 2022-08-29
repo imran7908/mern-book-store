@@ -57,4 +57,28 @@ const addBook = async (req, res, next) => {
   return res.status(201).json({ book });
 };
 
-module.exports = { getAllBooks, addBook, getBookById };
+const updateBook = async (req, res, next) => {
+  const { id } = req.params;
+  const { name, author, description, price, available } = req.body;
+  let book;
+  try {
+    book = await Book.findByIdAndUpdate(id, {
+      name,
+      author,
+      description,
+      price,
+      available,
+    });
+    await book.save();
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!book) {
+    return res.status(404).json({ message: "Unable to Update by this id!" });
+  }
+
+  return res.status(200).json({ book });
+};
+
+module.exports = { getAllBooks, addBook, getBookById, updateBook };
