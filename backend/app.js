@@ -21,5 +21,5 @@ mongoose
   .then(() => {
     app.listen(PORT);
   })
-  .then(() => console.log("App is listening on port 5000"))
+  .then(() => console.log(`App is listening on port ${PORT}`))
   .catch((err) => console.log(err));
