@@ -2,11 +2,13 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 
+//internal imports
+const bookRouter = require("./routes/bookRouter");
+
 const app = express();
 
-app.use("/", (req, res, next) => {
-  res.send("Main Page");
-});
+//middlewares
+app.use("/books", bookRouter);
 
 //Server and MongoDB connection
 const PORT = process.env.PORT || 5000;

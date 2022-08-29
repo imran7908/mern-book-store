@@ -19,7 +19,6 @@ const bookSchema = mongoose.Schema({
   },
   available: {
     type: Boolean,
-    required: true,
   },
 });
 
