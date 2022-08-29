@@ -35,7 +35,7 @@ const getBookById = async (req, res, next) => {
 };
 
 const addBook = async (req, res, next) => {
-  const { name, author, description, price, available } = req.body;
+  const { name, author, description, price, available, image } = req.body;
   let book;
   try {
     book = new Book({
@@ -44,6 +44,7 @@ const addBook = async (req, res, next) => {
       description,
       price,
       available,
+      image,
     });
     await book.save();
   } catch (err) {
@@ -54,12 +55,12 @@ const addBook = async (req, res, next) => {
     return res.status(500).json({ message: "Unable to Add!" });
   }
 
-  return res.status(201).json({ book });
+  return res.status(201).json({ message: "Successfully added!" });
 };
 
 const updateBook = async (req, res, next) => {
   const { id } = req.params;
-  const { name, author, description, price, available } = req.body;
+  const { name, author, description, price, available, image } = req.body;
   let book;
   try {
     book = await Book.findByIdAndUpdate(id, {
@@ -68,6 +69,7 @@ const updateBook = async (req, res, next) => {
       description,
       price,
       available,
+      image,
     });
     await book.save();
   } catch (err) {
@@ -78,7 +80,7 @@ const updateBook = async (req, res, next) => {
     return res.status(404).json({ message: "Unable to Update by this id!" });
   }
 
-  return res.status(200).json({ book });
+  return res.status(200).json({ message: "Successfully updated!" });
 };
 
 const deleteBook = async (req, res, next) => {
@@ -91,10 +93,10 @@ const deleteBook = async (req, res, next) => {
   }
 
   if (!book) {
-    return res.status(404).json({ message: "Unable to delte by this id!" });
+    return res.status(404).json({ message: "Unable to delete by this id!" });
   }
 
-  return res.status(200).json({ book });
+  return res.status(200).json({ message: "Successfully deleted!" });
 };
 
 module.exports = { getAllBooks, addBook, getBookById, updateBook, deleteBook };
