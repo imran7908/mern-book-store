@@ -1,9 +1,11 @@
 import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import AddBook from "./components/AddBook"
-import Books from "./components/Book/Books"
+import AddBook from "./components/AddBook";
+import Books from "./components/Book/Books";
 import About from "./components/About";
+
+const URL = "http://127.0.0.1:5000";
 
 function App() {
   return (
@@ -13,10 +15,10 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home />} exact />
-          <Route path="/add" element={<AddBook />} exact />
-          <Route path="/books" element={<Books />} exact />
-          <Route path="/about" element={<About />} exact />
+          <Route path="/" element={<Home URL={URL} />} exact />
+          <Route path="/add" element={<AddBook URL={URL} />} exact />
+          <Route path="/books" element={<Books URL={URL} />} exact />
+          <Route path="/about" element={<About URL={URL} />} exact />
         </Routes>
       </main>
     </>
