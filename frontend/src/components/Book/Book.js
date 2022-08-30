@@ -13,9 +13,8 @@ const Book = (props) => {
     await axios
       .delete(`${URL}/books/${_id}`)
       .then((res) => res.data)
-      .then(() => {
-        history("/books");
-      });
+      .then(() => history("/"))
+      .then(() => history("/books"));
   };
 
   return (
