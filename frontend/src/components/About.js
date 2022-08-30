@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { fontFamily } from "@mui/system";
 import React from "react";
 
 const About = () => {
