@@ -1,6 +1,4 @@
-# To view this app click on "Live Demo"
-
-[Live Demo](https://imran-mern-book-store.netlify.app/)
+## [Live Demo](https://imran-mern-book-store.netlify.app/)
 
 # Getting Started with Create React App
 
