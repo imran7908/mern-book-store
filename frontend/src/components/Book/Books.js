@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Book from "./Book";
+import "./Book.css";
 
 const Books = ({ URL }) => {
   const fetchHandler = async () => {
@@ -17,9 +18,9 @@ const Books = ({ URL }) => {
         {books &&
           books.map((book, index) => {
             return (
-              <div className="book" key={index}>
+              <li key={index}>
                 <Book book={book} />
-              </div>
+              </li>
             );
           })}
       </ul>
