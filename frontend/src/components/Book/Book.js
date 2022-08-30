@@ -1,9 +1,19 @@
-import React from 'react'
+import { Button } from "@mui/material";
+import React from "react";
 
-const Book = () => {
+const Book = (props) => {
+    const { _id, name, author, description, price, available, image } = props.book
   return (
-    <div>Book</div>
-  )
-}
+    <div>
+      <img src={image} alt={name} />
+      <article>By {author}</article>
+      <h3>{name}</h3>
+      <p>{description}</p>
+      <h2>Tk. {price}</h2>
+      <Button>Update</Button>
+      <Button>Delete</Button>
+    </div>
+  );
+};
 
-export default Book
+export default Book;

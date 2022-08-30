@@ -16,9 +16,11 @@ const Books = ({ URL }) => {
       <ul>
         {books &&
           books.map((book, index) => {
-            <div key={index}>
-              <Book />
-            </div>;
+            return (
+              <div className="book" key={index}>
+                <Book book={book} />
+              </div>
+            );
           })}
       </ul>
     </div>
