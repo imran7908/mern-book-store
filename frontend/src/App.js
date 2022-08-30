@@ -6,7 +6,7 @@ import Books from "./components/Book/Books";
 import About from "./components/About";
 import BookDetail from "./components/Book/BookDetail";
 
-const URL = "https://mern-bookstore-b.herokuapp.com/";
+const URL = "https://mern-bookstore-b.herokuapp.com";
 
 function App() {
   return (
