@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import AddBook from "./components/AddBook";
 import Books from "./components/Book/Books";
 import About from "./components/About";
+import BookDetail from "./components/Book/BookDetail";
 
 const URL = "http://127.0.0.1:5000";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/add" element={<AddBook URL={URL} />} exact />
           <Route path="/books" element={<Books URL={URL} />} exact />
           <Route path="/about" element={<About URL={URL} />} exact />
+          <Route path="/books/:id" element={<BookDetail URL={URL} />} exact />
         </Routes>
       </main>
     </>

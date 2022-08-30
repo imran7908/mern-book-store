@@ -19,7 +19,7 @@ const Books = ({ URL }) => {
           books.map((book, index) => {
             return (
               <li key={index}>
-                <Book book={book} />
+                <Book URL={URL} book={book} />
               </li>
             );
           })}
