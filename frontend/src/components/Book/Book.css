@@ -23,6 +23,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .card > img {
