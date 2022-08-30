@@ -16,9 +16,7 @@ app.use("/books", bookRouter);
 //Server and MongoDB connection
 const PORT = process.env.PORT || 5000;
 mongoose
-  .connect(
-    "mongodb+srv://admin:CMXWkk9d7mrmkDiF@bookstore.bpvpxbs.mongodb.net/bookStore?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_CONNECTION_STRING)
   .then(() => console.log("Connected to Database"))
   .then(() => {
     app.listen(PORT);
